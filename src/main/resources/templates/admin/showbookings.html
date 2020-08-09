@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html  xmlns:th ="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Atrium List</title>
+    <div th:replace="/imports"></div>
+</head>
+<body>
+<div th:replace="/admin/navbar"></div>
+<div class="container">
+    <h3>List of all Bookings</h3>
+    <hr class="my-4">
+    <br>
+    <br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">User</th>
+            <th scope="col">Property</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Rent</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.property}"></td>
+            <td th:text="${booking.property}"></td>
+            <td th:text="${booking.startday}"></td>
+            <td th:text="${booking.endday}"></td>
+            <td th:text="${booking.rent}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" th:href="@{/admindash}" role="button">Go Back</a>
+    </p>
+</div>
+
+
+</body>
+</html>

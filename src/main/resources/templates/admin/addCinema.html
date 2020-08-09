@@ -1,0 +1,40 @@
+<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="/imports"></div>
+    <style rel="stylesheet">
+        .myJumbo{
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        .my-container{
+            margin: auto;
+            width: 80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="/admin/navbar"></div>
+
+<div class="jumbotron myJumbo">
+    <h1 class="display-4">Register new Cinema</h1>
+    <hr class="my-4">
+</div>
+
+
+<div class="container my-container">
+    <form class="form" action="#" th:object="${cinema}" th:method="post"  th:action="@{/addcinema}">
+        <div th:replace="/admin/management/formCinema"></div>
+    </form>
+    <br>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" th:href="@{/admindash}" role="button">Go Back</a>
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  xmlns:th ="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shops List</title>
+    <div th:replace="/imports"></div>
+</head>
+<body>
+    <div th:replace="/navbar"></div>
+    <div class="container">
+        <h3>List of shops and their rent</h3>
+        <br>
+        <br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Shop type</th>
+                <th scope="col">Day type</th>
+                <th scope="col">Rental Type</th>
+                <th scope="col">Rent</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="shop : ${shops}">
+                    <td th:text="${shop.shopType}"></td>
+                    <td th:text="${shop.dayType}"></td>
+                    <td th:text="${shop.rentType}"></td>
+                    <td th:text="${shop.rent}"></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" th:href="@{/}" role="button">Go Back</a>
+        </p>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="/imports"></div>
+    <style rel="stylesheet">
+        .myJumbo{
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        .my-container{
+            margin: auto;
+            width: 80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="/navbar"></div>
+
+<div class="jumbotron myJumbo">
+    <h1 class="display-4">Create new Booking</h1>
+    <hr class="my-4">
+</div>
+
+
+<div class="container my-container">
+    <form class="form" action="#" th:object="${booking}" th:method="post"  th:action="@{/addbooking}">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" th:field="*{username}" id="username">
+        </div>
+        <div class="form-group">
+            <label for="property">Property Type</label>
+            <select class="form-control" th:field="*{property}" id="property">
+                <option th:text="Shop-Small" th:value="Small"></option>
+                <option th:text="Shop-Medium" th:value="Medium"></option>
+                <option th:text="Shop-Large" th:value="large"></option>
+                <option th:text="Atrium-NorthWest" th:value="NorthWest"></option>
+                <option th:text="Atrium-South" th:value="South"></option>
+                <option th:text="Cinema" th:value="Cinema"></option>
+                <option th:text="Banner" th:value="Banner"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="start">Booking from</label>
+            <input type="date" class="form-control" th:field="*{startday}" id="start">
+        </div>
+        <div class="form-group">
+            <label for="end">Booking To</label>
+            <input type="date" class="form-control" th:field="*{endday}" id="end">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </div>
+
+    </form>
+    <br>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" th:href="@{/welcome}" role="button">Go Back</a>
+    </p>
+</div>
+
+</body>
+</html>

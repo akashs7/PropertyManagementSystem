@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <div th:replace="/imports"></div>
+        <style rel="stylesheet">
+            .jumbotron-myJumbo{
+                width: 80%;
+                text-align: center;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div th:replace="/navbar"></div>
+
+        <div class="jumbotron jumbotron-myJumbo">
+            <h1 class="display-4">Welcome User!!</h1>
+            <p class="lead">Access your account to view registered complaints and booked properties.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" th:href="@{/addbooking}" role="button">Create a new booking</a>
+                <a class="btn btn-primary btn-lg" th:href="@{/addcomplaint}" role="button">Register a new complaint</a>
+            </p>
+        </div>
+        <div class="container">
+
+            <h4>Your Bookings</h4>
+            <hr class="my-4">
+            <br>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Property</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Rent</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="booking : ${bookings}">
+                    <td th:text="${booking.property}"></td>
+                    <td th:text="${booking.startday}"></td>
+                    <td th:text="${booking.endday}"></td>
+                    <td th:text="${booking.rent}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4>Your complaints</h4>
+            <hr class="my-4">
+            <br>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Property Type</th>
+                    <th scope="col">Problem Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="complaint : ${complaints}">
+                    <td th:text="${complaint.property}"></td>
+                    <td th:text="${complaint.problemType}"></td>
+                    <td th:text="${complaint.description}"></td>
+                    <td th:text="${complaint.date}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </body>
+</html>

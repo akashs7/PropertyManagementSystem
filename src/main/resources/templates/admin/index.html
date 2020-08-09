@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <div th:replace="/imports"></div>
+        <style rel="stylesheet">
+            .jumbotron-myJumbo{
+                width: 75%;
+                text-align: center;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div th:replace="/navbar"></div>
+
+        <div class="jumbotron jumbotron-myJumbo">
+            <h1 class="display-4">Welcome admin!</h1>
+            <p class="lead">Login to view, update properties and view complaints from Users..</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" th:href="@{/admindash}" role="button">Sign In</a>
+            </p>
+        </div>
+
+    </body>
+</html>

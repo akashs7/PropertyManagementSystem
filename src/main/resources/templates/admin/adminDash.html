@@ -1,0 +1,63 @@
+<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <div th:replace="/imports"></div>
+        <style rel="stylesheet">
+            .myJumbo{
+                text-align: center;
+                width: 80%;
+                margin: auto;
+            }
+
+            .my-container{
+                margin: auto;
+                width: 80%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    <div th:replace="/admin/navbar"></div>
+
+    <div class="jumbotron myJumbo">
+        <h1 class="display-4">Welcome admin!!</h1>
+        <p class="lead">Use the Navbar to register new properties and view complaints from customers.</p>
+        <hr class="my-4">
+    </div>
+
+    <div class="container my-container">
+        <h4 class="lead">View Existing Properties</h4>
+        <br>
+        <h5 class="lead">Click on respective buttons to view existing properties and bookings</h5>
+        <hr class="my-4">
+        <a th:href="@{/shops}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Shops</a>
+        <a th:href="@{/atriums}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Atriums</a>
+        <a th:href="@{/cinema}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cinemas</a>
+        <a th:href="@{/banners}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Banners</a>
+        <a th:href="@{/showbookings}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Bookings</a>
+
+        <br>
+        <br>
+        <br>
+        <h3 class="lead">Finance Report</h3>
+        <hr class="my-4">
+        <br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Booked Properties</th>
+                <th scope="col">Total Revenue</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="r : ${report}">
+                <td th:text="${r.count}"></td>
+                <td th:text="${r.rent}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    </body>
+</html>
